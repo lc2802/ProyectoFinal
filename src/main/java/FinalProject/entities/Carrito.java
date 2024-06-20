@@ -26,6 +26,8 @@ public class Carrito {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente_id;
 
+    private Double total;
+
     //Getters y Setter que se usan para poder setear y obtener infomación de los atributos. 
     //Esto es importante ya que sin esto no se puede persistir.
 
@@ -93,5 +95,13 @@ public class Carrito {
                 ", producto_id=" + producto_id +
                 ", cliente_id=" + cliente_id +
                 '}';
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
 }

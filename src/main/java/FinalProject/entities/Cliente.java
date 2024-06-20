@@ -16,7 +16,7 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer cliente_id;
     private String nombre;
     private Integer documento;
 
@@ -33,11 +33,11 @@ public class Cliente {
     }
 
     public Integer getId() {
-        return id;
+        return cliente_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer cliente_id) {
+        this.cliente_id = cliente_id;
     }
 
     public String getNombre() {
@@ -77,18 +77,18 @@ public class Cliente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id) && Objects.equals(nombre, cliente.nombre) && Objects.equals(documento, cliente.documento) && Objects.equals(carritos, cliente.carritos) && Objects.equals(factura, cliente.factura);
+        return Objects.equals(cliente_id, cliente.cliente_id) && Objects.equals(nombre, cliente.nombre) && Objects.equals(documento, cliente.documento) && Objects.equals(carritos, cliente.carritos) && Objects.equals(factura, cliente.factura);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, documento, carritos, factura);
+        return Objects.hash(cliente_id, nombre, documento, carritos, factura);
     }
 
     @Override
     public String toString() {
         return "cliente{" +
-                "id=" + id +
+                "cliente_id=" + cliente_id +
                 ", name='" + nombre + '\'' +
                 ", documento=" + documento +
                 //OJO CON LAS LISTAS!!!
