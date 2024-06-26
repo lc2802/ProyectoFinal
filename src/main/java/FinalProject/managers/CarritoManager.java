@@ -6,12 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import FinalProject.entities.Carrito;
-import FinalProject.entities.Cliente;
-import FinalProject.entities.Producto;
+import FinalProject.Model.Carrito;
+import FinalProject.Model.Cliente;
+import FinalProject.Model.Producto;
 
 //Implementación de Manager, acá se va a aplicar la logica de negocio y los controles de persistencia necesarios.
-
 
 public class CarritoManager {
     /*

@@ -1,4 +1,4 @@
-package FinalProject.entities;
+package FinalProject.Model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -13,7 +13,6 @@ import java.util.Objects;
 public class Factura {
 
          // Definición de atributos correspondientes a Factura
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

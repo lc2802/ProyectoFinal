@@ -5,7 +5,7 @@ import jakarta.persistence.EntityTransaction;
 
 import java.util.List;
 
-import FinalProject.entities.Producto;
+import FinalProject.Model.Producto;
 
 //Implementación de Manager, acá se va a aplicar la logica de negocio y los controles de persistencia necesarios.
 

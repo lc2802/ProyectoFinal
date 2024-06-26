@@ -1,6 +1,6 @@
 package FinalProject;
 
-import FinalProject.entities.Producto;
+import FinalProject.Model.Producto;
 import FinalProject.managers.CarritoManager;
 import FinalProject.managers.ClienteManager;
 import FinalProject.managers.ProductoManager;

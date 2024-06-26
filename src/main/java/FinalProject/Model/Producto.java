@@ -1,4 +1,4 @@
-package FinalProject.entities;
+package FinalProject.Model;
 
 import jakarta.persistence.*;
 

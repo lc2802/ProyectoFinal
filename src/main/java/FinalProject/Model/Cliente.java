@@ -1,4 +1,4 @@
-package FinalProject.entities;
+package FinalProject.Model;
 
 import jakarta.persistence.*;
 
@@ -20,9 +20,12 @@ public class Cliente {
     private String nombre;
     private Integer documento;
 
+    @Transient
     @OneToMany(mappedBy = "cliente_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos;
 
+
+    @Transient
     @OneToMany(mappedBy = "cliente_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Factura> factura;
 
