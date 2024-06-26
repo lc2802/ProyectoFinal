@@ -6,7 +6,7 @@ import FinalProject.Model.Producto;
 
 public interface ProductoService {
 
-    public void createProducto(String nombre, Integer stock, double precio);
+    public void createProducto(Producto producto);
     public Producto finByID(Integer id);
     public List<Producto> finByNombre(String nombreProducto);
 

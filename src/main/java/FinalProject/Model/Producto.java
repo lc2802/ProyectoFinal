@@ -22,6 +22,7 @@ public class Producto {
     private Integer stock;
     private double precio;
 
+    @Transient
     @OneToMany(mappedBy = "producto_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos;
 
