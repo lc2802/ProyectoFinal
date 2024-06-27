@@ -24,7 +24,7 @@ public class ClienteServiceImpl implements ClienteService  {
     }
 
     @Override
-    public Cliente finByID(Integer id) {
+    public Cliente finByID(Long id) {
         return finByID(id);
     }
 
