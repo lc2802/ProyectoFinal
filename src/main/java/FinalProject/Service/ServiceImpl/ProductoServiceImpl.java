@@ -1,5 +1,6 @@
 package FinalProject.Service.ServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,15 +24,15 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public Producto finByID(Integer id) {
+    public Producto findByID(Long id) {
 
-        return finByID(id);
+        return findByID(id);
 
     }
     
 
     @Override
-    public List<Producto> finByNombre(String nombreProducto) {
+    public List<Producto> findByNombre(String nombreProducto) {
      
     List<Producto> productos = productoRepository.findByNombres(nombreProducto);          
 
@@ -39,4 +40,20 @@ public class ProductoServiceImpl implements ProductoService {
 
 
 }
+
+    @Override
+    public List<Producto> findByIDList(List<Long> productosID) {
+
+        List<Producto> productos = new ArrayList<>();
+        
+        for (Long productoID : productosID) {
+            
+            Producto producto = findByID(productoID);
+            
+            productos.add(producto);
+
+        }
+
+        return productos;
+    }
 }
