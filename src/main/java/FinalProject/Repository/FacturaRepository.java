@@ -11,9 +11,9 @@ import FinalProject.Model.Cliente;
 import FinalProject.Model.Factura;
 
 @Repository
-public interface FacturaRepository extends JpaRepository <Factura, Long>{
+public interface FacturaRepository extends JpaRepository <Factura, Integer>{
 
-    @Query ("SELECT f FROM Factura f WHERE f.clientes = clientes" )
-    List<Factura> findByCliente(List<Cliente> clientes);
+    //@Query ("SELECT f FROM Factura f WHERE f.clientes = clientes" )
+    //List<Factura> findByCliente(List<Cliente> clientes);
 
 }

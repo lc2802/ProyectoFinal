@@ -41,7 +41,10 @@ ProductoService productoService;
     }
     
     //usar los atributos de carrito para el endpoint, es decir, pasar como parametro los atributos de carrito en el controlador.
-    
+    /* 
+
+    ** PROXIMA ACTUALIZACION**
+
    @PostMapping("/AddCarrito")
    public void postMethodName(@RequestBody Long idcliente , @RequestBody List<Long> productosID) {
         try {
@@ -51,14 +54,14 @@ ProductoService productoService;
         } catch (Exception e) {
             throw new RuntimeException("CARRITO ERROR");               
         }       
-      
+  */    
    }
    
 
 
 
 
-}
+
 
 
 

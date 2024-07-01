@@ -20,14 +20,14 @@ public class FacturaServiceImpl implements FacturaService{
     @Autowired
     ClienteService clienteService;
 
-    @Override
+    /*@Override
     public List<Factura> mostarFactura(String nombreCliente) {
        
         List<Cliente> clientes = clienteService.findClientesByNombre(nombreCliente);
 
         return facturaRepository.findByCliente(clientes);
     }
-
+*/
    
 
 }

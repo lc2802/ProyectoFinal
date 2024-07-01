@@ -6,6 +6,6 @@ import FinalProject.Model.Factura;
 
 public interface FacturaService {
 
-    List<Factura> mostarFactura(String nombreCliente);
+    //List<Factura> mostarFactura(String nombreCliente);
 
 }

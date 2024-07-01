@@ -12,7 +12,7 @@ import FinalProject.Model.Cliente;
 
 
 @Repository
-public interface CarritoRepository extends JpaRepository <Carrito, Long> {
+public interface CarritoRepository extends JpaRepository <Carrito, Integer> {
 
     @Query("SELECT id FROM Carrito id WHERE id.cliente_id = :cliente")
      
