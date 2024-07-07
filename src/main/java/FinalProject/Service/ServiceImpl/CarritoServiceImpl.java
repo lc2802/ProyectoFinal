@@ -28,8 +28,8 @@ public class CarritoServiceImpl implements CarritoService{
         
         carrito.setCantidad(cantidad);
         carrito.setPrecio(producto.getPrecio());
-        carrito.setproducto_id(producto);
-        carrito.setcliente_id(cliente);
+        carrito.setProducto_id(producto);
+        carrito.setCliente_id(cliente);
 
         carritoRepository.save(carrito);
     }
@@ -55,8 +55,8 @@ public class CarritoServiceImpl implements CarritoService{
 
                     carritoNuevo.setCantidad(1); // Inicialmente se agrega uno
                     carritoNuevo.setPrecio(producto.getPrecio());
-                    carritoNuevo.setproducto_id(producto);
-                    carritoNuevo.setcliente_id(cliente);
+                    carritoNuevo.setProducto_id(producto);
+                    carritoNuevo.setCliente_id(cliente);
                     carritoMap.put(producto.getId(), carritoNuevo);
                 }
             }

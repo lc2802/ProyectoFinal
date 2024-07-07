@@ -13,8 +13,7 @@ import java.util.List;
  * Entidad Cliente
  */
 
-@Entity
-@NoArgsConstructor @ToString @EqualsAndHashCode
+@Entity @NoArgsConstructor @ToString @EqualsAndHashCode
 public class Cliente {
 
      // Definición de atributos correspondientes a Cliente
