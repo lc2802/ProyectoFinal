@@ -30,7 +30,7 @@ private ClienteService clienteService;
 
 
 @PostMapping()
-public void postMethodName(@RequestBody Cliente cliente) {
+public void postCliente(@RequestBody Cliente cliente) {
     try {
         clienteService.createCliente(cliente);
     } catch( Exception exception) {
@@ -69,10 +69,8 @@ try {
 
     @PutMapping("/{id}")
     public Cliente putMethodName(@PathVariable Long id, @RequestBody Cliente cliente) {
-        
-       Cliente updateCliente= clienteService.updateCliente(id,cliente);
-        
-        return updateCliente;
+
+        return clienteService.updateCliente(id,cliente);
         
     }
 

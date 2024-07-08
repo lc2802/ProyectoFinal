@@ -11,7 +11,7 @@ import FinalProject.Model.Producto;
 
 
 @Repository
-public interface ProductoRepository extends JpaRepository <Producto, Integer> {
+public interface ProductoRepository extends JpaRepository <Producto, Long> {
 
 
     @Query("SELECT p FROM Producto p WHERE p.nombre_producto LIKE CONCAT('%', :nombreProducto, '%')")
