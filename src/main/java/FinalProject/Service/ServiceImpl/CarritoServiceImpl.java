@@ -84,10 +84,10 @@ public class CarritoServiceImpl implements CarritoService{
         }
 
     @Override
-    public List<Carrito> findCarritosByCliente(Cliente cliente) {
+    public void findCarritosByCliente(Cliente cliente) {
 
-       return carritoRepository.findByNombres(cliente);
-       
+        carritoRepository.findByNombres(cliente);
+
     }
 
 }

@@ -23,12 +23,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RestController
 @RequestMapping(path="api/v1/Carrito")
 
-public class CarritoController{
+public class CarritoController {
 
-@Autowired
-CarritoService carritoService;
-ClienteService clienteService;
-ProductoService productoService;
+    @Autowired
+    CarritoService carritoService;
+    ClienteService clienteService;
+    ProductoService productoService;
 
     @GetMapping()
     public void findCarrotosByCliente(@RequestParam Cliente cliente) {
@@ -39,23 +39,21 @@ ProductoService productoService;
             throw new RuntimeException("READ CLIENTE ERROR");
         }
     }
-    
+
     //usar los atributos de carrito para el endpoint, es decir, pasar como parametro los atributos de carrito en el controlador.
-    /* 
 
-    ** PROXIMA ACTUALIZACION**
-
-   @PostMapping("/AddCarrito")
-   public void postMethodName(@RequestBody Long idcliente , @RequestBody List<Long> productosID) {
+    @PostMapping("/AddCarrito")
+    public void postMethodName(@RequestBody Long idcliente, @RequestBody List<Long> productosID) {
         try {
             Cliente cliente = clienteService.finByID(idcliente);
             List<Producto> productos = productoService.findByIDList(productosID);
-           if(cliente != null && !productos.isEmpty())  carritoService.addProductsToCarrito(productos, cliente);
+            if (cliente != null && !productos.isEmpty()) carritoService.addProductsToCarrito(productos, cliente);
         } catch (Exception e) {
-            throw new RuntimeException("CARRITO ERROR");               
-        }       
-  */    
-   }
+            throw new RuntimeException("CARRITO ERROR");
+        }
+
+    }
+}
    
 
 

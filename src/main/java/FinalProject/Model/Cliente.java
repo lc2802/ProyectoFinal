@@ -25,12 +25,12 @@ public class Cliente {
     @Setter @Getter private Integer documento;
 
 
-    /* 
+
     @Transient
     @Setter @Getter @OneToMany(mappedBy = "cliente_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Carrito> carritos;
 
-
+    /*
     @Transient
     @Setter @Getter @OneToMany(mappedBy = "cliente_id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Factura> factura;

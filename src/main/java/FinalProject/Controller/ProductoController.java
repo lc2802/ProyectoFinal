@@ -25,7 +25,6 @@ public class ProductoController {
         }
     }
 
-
     @GetMapping
     public List<Producto> productoList (){
         try {
