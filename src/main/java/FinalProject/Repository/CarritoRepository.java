@@ -12,10 +12,11 @@ import FinalProject.Model.Cliente;
 
 
 @Repository
-public interface CarritoRepository extends JpaRepository <Carrito, Integer> {
+public interface CarritoRepository extends JpaRepository <Carrito, Long> {
 
-    @Query("SELECT id FROM Carrito id WHERE id.cliente_id = :cliente")
-     
-    List<Carrito> findByNombres(Cliente cliente);
+    @Query("SELECT c.total FROM Carrito c WHERE c.cliente = :cliente")
+    List<Double> findTotalByCliente(Cliente cliente);
+
+
 
 }

@@ -12,7 +12,7 @@ public interface ClienteService {
     //Metodo para buscar un cliente por ID
     public Cliente finByID(Long id);
 
-    //Metodo para buscar clientes por nombres, todavia no implementado
+    //Metodo para buscar clientes por nombres, nom implementado
     //public List<Cliente> findClientesByNombre(String nombreCliente);
 
     //Metodo para buscar clientes todos los clientes

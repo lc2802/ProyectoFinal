@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,13 +22,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RestController
-@RequestMapping(path="api/v1/Carrito")
+@RequestMapping(path="api/v1/carrito")
 
 public class CarritoController {
 
     @Autowired
     CarritoService carritoService;
+    @Autowired
     ClienteService clienteService;
+    @Autowired
     ProductoService productoService;
 
     @GetMapping()
@@ -40,23 +43,31 @@ public class CarritoController {
         }
     }
 
-    //usar los atributos de carrito para el endpoint, es decir, pasar como parametro los atributos de carrito en el controlador.
-
-    @PostMapping("/AddCarrito")
-    public void postMethodName(@RequestBody Long idcliente, @RequestBody List<Long> productosID) {
+   
+    @PostMapping("/{idcliente}")
+    public void addProductosToCarrito(@PathVariable("idcliente") Long idcliente, @RequestBody List<Long> productosID) {
         try {
             Cliente cliente = clienteService.finByID(idcliente);
             List<Producto> productos = productoService.findByIDList(productosID);
-            if (cliente != null && !productos.isEmpty()) carritoService.addProductsToCarrito(productos, cliente);
+    
+            if (cliente != null && !productos.isEmpty()) {     
+                carritoService.addProductsToCarrito(productos, cliente);
+            } else {
+                throw new RuntimeException("Cliente no encontrado o lista de productos vacía");
+            }
         } catch (Exception e) {
-            throw new RuntimeException("CARRITO ERROR");
+            throw new RuntimeException("Error al procesar la solicitud de carrito", e);
         }
-
     }
+        
+        
+    
 }
    
 
 
+
+    
 
 
 

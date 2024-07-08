@@ -20,9 +20,5 @@ public class Producto {
     @Getter @Setter private Integer stock;
     @Getter @Setter private double precio;
 
-    @Transient
-    @Getter @Setter @OneToMany(mappedBy = "producto_id", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Carrito> carritos;
-
 
 }

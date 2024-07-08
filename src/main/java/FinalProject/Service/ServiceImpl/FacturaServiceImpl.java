@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import FinalProject.Model.Carrito;
 import FinalProject.Model.Cliente;
 import FinalProject.Model.Factura;
+import FinalProject.Repository.CarritoRepository;
 import FinalProject.Repository.FacturaRepository;
 import FinalProject.Service.ClienteService;
 import FinalProject.Service.FacturaService;
@@ -15,19 +17,25 @@ import FinalProject.Service.FacturaService;
 public class FacturaServiceImpl implements FacturaService{
 
     @Autowired
-    FacturaRepository facturaRepository;
+    CarritoRepository carritoRepository;
     
     @Autowired
     ClienteService clienteService;
 
-    /*@Override
-    public List<Factura> mostarFactura(String nombreCliente) {
+    @Override
+    public Factura mostarFactura(Long clienteID) {
        
-        List<Cliente> clientes = clienteService.findClientesByNombre(nombreCliente);
+        Cliente cliente = clienteService.finByID(clienteID);
 
-        return facturaRepository.findByCliente(clientes);
+        List<Double> totalList = carritoRepository.findTotalByCliente(cliente);
+
+        Factura factura = factura-    
+        Double total = totalList.stream().reduce(0.0, Double::sum);
+  
+        return ;
+  
     }
-*/
+
    
 
 }
