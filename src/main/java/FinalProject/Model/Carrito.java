@@ -22,8 +22,7 @@ public class Carrito {
     @Getter @Setter @JoinColumn(name = "producto_id") private Producto producto;
 
     @ManyToOne
-    @JsonBackReference
     @Getter @Setter @JoinColumn(name = "cliente_id") private Cliente cliente;
 
-    @Getter @Setter private Double total;
+    @Getter @Setter private Double totalCarrito;
 }

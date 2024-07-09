@@ -1,5 +1,6 @@
 package FinalProject.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,13 +16,13 @@ public class Factura {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter private Integer id;
+    @Getter private Long id;
     @Getter @Setter private double total;
     @Getter @Setter private LocalDateTime dateTime;
 
     @ManyToOne
     @Getter @Setter @JoinColumn(name = "cliente_id")
-    private Cliente cliente_id;
+    private Cliente cliente;
 
 
 }

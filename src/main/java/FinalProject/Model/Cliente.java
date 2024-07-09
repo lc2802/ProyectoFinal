@@ -27,13 +27,11 @@ public class Cliente {
     @Setter @Getter private Integer documento;
 
 
-  
-    @JsonManagedReference
+
     @OneToMany(mappedBy = "cliente")
     @Setter @Getter private List<Carrito> carritos;
 
-    @Transient
-    @Setter @Getter @OneToMany(mappedBy = "cliente_id", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Setter @Getter @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Factura> factura;
 
 

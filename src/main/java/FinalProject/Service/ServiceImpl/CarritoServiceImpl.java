@@ -62,7 +62,7 @@ public class CarritoServiceImpl implements CarritoService{
             }
             // Persistir los registros en la base de datos
             for (Carrito carrito : carritoMap.values()) {
-                carrito.setTotal(carrito.getPrecio()*carrito.getCantidad());
+                carrito.setTotalCarrito(carrito.getPrecio()*carrito.getCantidad());
                 carritoRepository.save(carrito);
             }
         }

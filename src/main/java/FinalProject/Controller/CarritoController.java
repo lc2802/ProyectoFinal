@@ -33,15 +33,6 @@ public class CarritoController {
     @Autowired
     ProductoService productoService;
 
-    @GetMapping()
-    public void findCarrotosByCliente(@RequestParam Cliente cliente) {
-
-        try {
-            carritoService.findCarritosByCliente(cliente);
-        } catch (Exception e) {
-            throw new RuntimeException("READ CLIENTE ERROR");
-        }
-    }
 
    
     @PostMapping("/{idcliente}")

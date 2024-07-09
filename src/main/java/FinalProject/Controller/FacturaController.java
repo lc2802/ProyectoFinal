@@ -41,7 +41,6 @@ public class FacturaController {
 
 @GetMapping("/{clienteID}")
 public void findFacturaByCliente(@PathVariable("clienteID") Long clienteID){
-
 try {
     facturaService.mostarFactura(clienteID);
 } catch (Exception e) {

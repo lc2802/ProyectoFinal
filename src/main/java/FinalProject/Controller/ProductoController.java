@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path="api/v1/productos")
+@RequestMapping(path="api/v1/producto")
 public class ProductoController {
 
     @Autowired

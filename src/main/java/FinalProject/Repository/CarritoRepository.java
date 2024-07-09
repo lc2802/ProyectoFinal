@@ -14,9 +14,7 @@ import FinalProject.Model.Cliente;
 @Repository
 public interface CarritoRepository extends JpaRepository <Carrito, Long> {
 
-    @Query("SELECT c.total FROM Carrito c WHERE c.cliente = :cliente")
+    @Query("SELECT c.totalCarrito FROM Carrito c WHERE c.cliente = :cliente")
     List<Double> findTotalByCliente(Cliente cliente);
-
-
 
 }
