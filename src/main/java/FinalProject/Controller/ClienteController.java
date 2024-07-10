@@ -40,7 +40,7 @@ public void postCliente(@RequestBody Cliente cliente) {
 }
 
 @GetMapping()
-public  List<Cliente> findClientes() {
+public  List<Cliente> getAll() {
     try {
         return clienteService.findAllClientes();
     } catch (Exception e) {
@@ -50,7 +50,7 @@ public  List<Cliente> findClientes() {
 }
 
 @GetMapping("/{id}")
-public  Cliente getMethodName(@PathVariable("id") Long id){
+public  Cliente getByID(@PathVariable("id") Long id){
 try {
     return clienteService.findByID(id);
 } catch (Exception e) {

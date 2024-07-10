@@ -26,7 +26,7 @@ public class ProductoController {
     }
 
     @GetMapping
-    public List<Producto> productoList (){
+    public List<Producto> getAllProducto(){
         try {
             return productoService.findAllProductos();
         } catch (Exception e) {
@@ -35,7 +35,7 @@ public class ProductoController {
     }
 
     @GetMapping("/{id}")
-    public Producto getMethodName(@PathVariable("id") Long id){
+    public Producto getProductoByID(@PathVariable("id") Long id){
         try {
             return productoService.findID(id);
         } catch (Exception e) {
