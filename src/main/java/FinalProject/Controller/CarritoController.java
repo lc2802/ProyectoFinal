@@ -12,6 +12,7 @@ import FinalProject.Service.ProductoService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +39,7 @@ public class CarritoController {
     @PostMapping("/{idcliente}")
     public void addProductosToCarrito(@PathVariable("idcliente") Long idcliente, @RequestBody List<Long> productosID) {
         try {
-            Cliente cliente = clienteService.finByID(idcliente);
+            Cliente cliente = clienteService.findByID(idcliente);
             List<Producto> productos = productoService.findByIDList(productosID);
     
             if (cliente != null && !productos.isEmpty()) {     
@@ -50,7 +51,23 @@ public class CarritoController {
             throw new RuntimeException("Error al procesar la solicitud de carrito", e);
         }
     }
-        
+
+  @DeleteMapping("/{idcliente}")
+
+      public void deleteCarrito(@PathVariable("idcliente") Long idcliente, @RequestBody Long productosID) {
+        try {
+            Cliente cliente = clienteService.findByID(idcliente);
+            Producto producto = productoService.findID(productosID);
+    
+            if (cliente != null && producto!= null) {     
+                carritoService.deleteCarrito(producto, cliente);
+            } else {
+                throw new RuntimeException("Cliente no encontrado o lista de productos vacía");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Error al procesar la solicitud de carrito", e);
+        }
+    }   
         
     
 }

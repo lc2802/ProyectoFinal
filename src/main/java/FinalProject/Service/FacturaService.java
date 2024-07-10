@@ -4,8 +4,9 @@ import FinalProject.Model.Factura;
 
 public interface FacturaService {
 
-    Factura mostarFactura(Long clienteID);
+    Factura generarFactura(Long clienteID);
 
-    //List<Factura> mostarFactura(String nombreCliente);
+    Factura mostrarFactura(Long clienteID);
+
 
 }

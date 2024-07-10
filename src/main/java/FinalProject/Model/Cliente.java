@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 /*
@@ -29,9 +30,11 @@ public class Cliente {
 
 
     @OneToMany(mappedBy = "cliente")
+    @JsonBackReference
     @Setter @Getter private List<Carrito> carritos;
 
     @Setter @Getter @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonBackReference
     private List<Factura> factura;
 
 

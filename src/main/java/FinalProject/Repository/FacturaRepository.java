@@ -15,7 +15,6 @@ public interface FacturaRepository extends JpaRepository <Factura, Long>{
 
     Factura findByCliente(Cliente cliente);
 
-    //@Query ("SELECT f FROM Factura f WHERE f.clientes = clientes" )
-    //List<Factura> findByCliente(List<Cliente> clientes);
+    
 
 }

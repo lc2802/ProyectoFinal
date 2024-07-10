@@ -11,5 +11,6 @@ public interface CarritoService {
     public void addToCarrito(Integer cantidad, Producto producto, Cliente cliente);
     public void addProductsToCarrito(List<Producto> productos, Cliente cliente);
     public Map<Producto, Integer> contador(List<Producto> productos);
+    public void deleteCarrito(Producto producto, Cliente cliente);
 
 }

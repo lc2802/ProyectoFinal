@@ -52,7 +52,7 @@ public  List<Cliente> findClientes() {
 @GetMapping("/{id}")
 public  Cliente getMethodName(@PathVariable("id") Long id){
 try {
-    return clienteService.finByID(id);
+    return clienteService.findByID(id);
 } catch (Exception e) {
     throw new RuntimeException("READ ID ERROR");
 }}

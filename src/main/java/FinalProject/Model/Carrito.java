@@ -6,6 +6,7 @@ import lombok.*;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 
 
@@ -19,9 +20,11 @@ public class Carrito {
     @Getter @Setter private double precio;
 
     @ManyToOne
+    @JsonManagedReference
     @Getter @Setter @JoinColumn(name = "producto_id") private Producto producto;
 
     @ManyToOne
+    @JsonManagedReference
     @Getter @Setter @JoinColumn(name = "cliente_id") private Cliente cliente;
 
     @Getter @Setter private Double totalCarrito;

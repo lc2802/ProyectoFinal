@@ -10,7 +10,7 @@ public interface ClienteService {
     public void createCliente(Cliente cliente);
 
     //Metodo para buscar un cliente por ID
-    public Cliente finByID(Long id);
+    public Cliente findByID(Long id);
 
     //Metodo para buscar clientes por nombres, nom implementado
     //public List<Cliente> findClientesByNombre(String nombreCliente);

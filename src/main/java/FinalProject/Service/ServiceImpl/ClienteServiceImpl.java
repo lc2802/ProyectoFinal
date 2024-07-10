@@ -25,7 +25,7 @@ public class ClienteServiceImpl implements ClienteService  {
     }
 
     @Override
-    public Cliente finByID(Long id) {
+    public Cliente findByID(Long id) {
         return clienteRepository.findById(id).orElse(null);
     }
 

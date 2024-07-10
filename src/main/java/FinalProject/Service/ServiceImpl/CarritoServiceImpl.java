@@ -83,5 +83,9 @@ public class CarritoServiceImpl implements CarritoService{
             return elementCountMap;
         }
 
-
+    @Override
+    public void deleteCarrito(Producto producto, Cliente cliente) {
+        List<Carrito> carritosToDelete = carritoRepository.findCarritos(producto, cliente);
+        carritoRepository.deleteAll(carritosToDelete);
+    }
 }
