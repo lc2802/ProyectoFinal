@@ -52,7 +52,7 @@ try {
 }
 
 @GetMapping("/{clienteID}")
-public Factura finFacturaByClienteID (@PathVariable ("clienteID") Long clienteID){
+public Factura findFacturaByClienteID (@PathVariable ("clienteID") Long clienteID){
 
     try {
         Factura factura = facturaService.mostrarFactura(clienteID);

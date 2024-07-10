@@ -68,7 +68,7 @@ try {
     }
 
     @PutMapping("/{id}")
-    public Cliente putMethodName(@PathVariable Long id, @RequestBody Cliente cliente) {
+    public Cliente putCliente(@PathVariable Long id, @RequestBody Cliente cliente) {
 
         return clienteService.updateCliente(id,cliente);
         

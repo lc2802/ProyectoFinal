@@ -43,7 +43,7 @@ public class ProductoController {
         }}
 
     @PutMapping("/{id}")
-    public Producto putMethodName(@PathVariable Long id, @RequestBody Producto producto) {
+    public Producto putProducto(@PathVariable Long id, @RequestBody Producto producto) {
 
         return productoService.updateProducto(id,producto);
 
