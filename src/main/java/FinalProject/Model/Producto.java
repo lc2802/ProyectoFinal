@@ -1,5 +1,7 @@
 package FinalProject.Model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,5 +22,8 @@ public class Producto {
     @Getter @Setter private Integer stock;
     @Getter @Setter private double precio;
 
+    @OneToMany(mappedBy = "producto")
+    @JsonIgnore
+    @Setter @Getter private List<Carrito> carritos;
 
 }

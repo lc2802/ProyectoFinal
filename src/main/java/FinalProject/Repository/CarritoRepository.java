@@ -15,10 +15,16 @@ import FinalProject.Model.Producto;
 @Repository
 public interface CarritoRepository extends JpaRepository <Carrito, Long> {
 
-    @Query("SELECT c.totalCarrito FROM Carrito c WHERE c.cliente = :cliente")
+    @Query("SELECT c.totalCarrito FROM Carrito c WHERE c.cliente = :cliente AND c.entregado = false")
     List<Double> findTotalByCliente(Cliente cliente);
 
     @Query("SELECT c FROM Carrito c WHERE c.cliente = :cliente AND c.producto = :producto")
     List<Carrito> findCarritos(Producto producto, Cliente cliente);
+
+    @Query("SELECT c FROM Carrito c WHERE c.cliente = :cliente")
+    List<Carrito> findCarritosByCliente(Cliente cliente);
+
+    @Query("SELECT c FROM Carrito c WHERE c.cliente = :cliente AND c.entregado = false")
+    List<Carrito> findCarritosByClienteNoEntregados(Cliente cliente);
 
 }

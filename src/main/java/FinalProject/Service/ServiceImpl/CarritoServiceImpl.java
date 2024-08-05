@@ -57,6 +57,7 @@ public class CarritoServiceImpl implements CarritoService{
                     carritoNuevo.setPrecio(producto.getPrecio());
                     carritoNuevo.setProducto(producto);
                     carritoNuevo.setCliente(cliente);
+                    carritoNuevo.setEntregado(false);
                     carritoMap.put(producto.getId(), carritoNuevo);
                 }
             }
@@ -87,5 +88,10 @@ public class CarritoServiceImpl implements CarritoService{
     public void deleteCarrito(Producto producto, Cliente cliente) {
         List<Carrito> carritosToDelete = carritoRepository.findCarritos(producto, cliente);
         carritoRepository.deleteAll(carritosToDelete);
+    }
+
+    @Override
+    public List<Carrito> findCarritosByCliente(Cliente cliente) {
+        return carritoRepository.findCarritosByCliente(cliente);
     }
 }

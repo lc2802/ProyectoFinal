@@ -1,5 +1,6 @@
 package FinalProject.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,18 +24,18 @@ public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter private Long cliente_id;
+    @Getter private Long id;
     @Setter @Getter private String nombre;
     @Setter @Getter private Integer documento;
 
 
 
+
     @OneToMany(mappedBy = "cliente")
-    @JsonBackReference
     @Setter @Getter private List<Carrito> carritos;
 
     @Setter @Getter @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonBackReference
+    @JsonBackReference("cliente-factura")
     private List<Factura> factura;
 
 

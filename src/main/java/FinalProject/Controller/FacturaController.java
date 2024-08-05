@@ -22,24 +22,7 @@ public class FacturaController {
   @Autowired
   FacturaService facturaService; 
     
-/* 
-    @PostMapping
-    public void addCarritoToFactura(@PathVariable("idcliente") Long idcliente) {
-        try {
-            Cliente cliente = clienteService.finByID(idcliente);
-            List<Producto> productos = productoService.findByIDList(productosID);
-    
-            if (cliente != null && !productos.isEmpty()) {     
-                carritoService.addProductsToCarrito(productos, cliente);
-            } else {
-                throw new RuntimeException("Cliente no encontrado o lista de productos vacía");
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("Error al procesar la solicitud de carrito", e);
-        }
-    }
-    
-*/
+
 
 @PostMapping("/{clienteID}")
 public void generateFacturaByCliente(@PathVariable("clienteID") Long clienteID){

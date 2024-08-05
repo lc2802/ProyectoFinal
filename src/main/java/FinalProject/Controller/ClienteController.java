@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
-@RequestMapping(path="api/v1/clientes")
+@RequestMapping(path="api/v1/cliente")
 public class ClienteController {
 
 @Autowired

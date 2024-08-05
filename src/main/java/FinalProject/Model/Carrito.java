@@ -1,5 +1,6 @@
 package FinalProject.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,12 +21,18 @@ public class Carrito {
     @Getter @Setter private double precio;
 
     @ManyToOne
-    @JsonManagedReference
     @Getter @Setter @JoinColumn(name = "producto_id") private Producto producto;
 
+    @JsonIgnore
     @ManyToOne
-    @JsonManagedReference
     @Getter @Setter @JoinColumn(name = "cliente_id") private Cliente cliente;
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "factura_id")
+    private Factura factura;
+
     @Getter @Setter private Double totalCarrito;
+
+    @Getter @Setter private Boolean entregado;
 }

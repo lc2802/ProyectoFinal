@@ -1,5 +1,6 @@
 package FinalProject.Controller;
 
+import FinalProject.Model.Carrito;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -67,7 +68,16 @@ public class CarritoController {
         } catch (Exception e) {
             throw new RuntimeException("Error al procesar la solicitud de carrito", e);
         }
-    }   
+    }
+
+    @GetMapping("/{idcliente}")
+    public List <Carrito> getCarritosByCliente(@PathVariable("idcliente") Long idcliente){
+        try {
+            Cliente cliente = clienteService.findByID(idcliente);
+            return carritoService.findCarritosByCliente(cliente);
+        } catch (Exception e) {
+            throw new RuntimeException("READ ERROR");
+        }}
         
     
 }

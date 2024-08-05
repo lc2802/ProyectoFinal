@@ -3,6 +3,7 @@ package FinalProject.Service;
 import java.util.List;
 import java.util.Map;
 
+import FinalProject.Model.Carrito;
 import FinalProject.Model.Cliente;
 import FinalProject.Model.Producto;
 
@@ -13,4 +14,5 @@ public interface CarritoService {
     public Map<Producto, Integer> contador(List<Producto> productos);
     public void deleteCarrito(Producto producto, Cliente cliente);
 
+    public List<Carrito> findCarritosByCliente(Cliente cliente);
 }
