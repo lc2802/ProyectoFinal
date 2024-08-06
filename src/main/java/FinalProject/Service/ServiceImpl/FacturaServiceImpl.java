@@ -35,24 +35,25 @@ public class FacturaServiceImpl implements FacturaService{
     public Factura generarFactura(Long clienteID) {
        
         Cliente cliente = clienteService.findByID(clienteID);
-        Factura factura = new Factura();
+        if(cliente != null){  Factura factura = new Factura();
 
-        factura.setCliente(cliente);
-
-        List<Carrito> carritosListEntregable = carritoRepository.findCarritosByClienteNoEntregados(cliente);
-        factura.setCarritos(carritosListEntregable);
-
-        List<Double> totalList = carritoRepository.findTotalByCliente(cliente);
-        factura.setTotal(totalList.stream().reduce(0.0, Double::sum));
-
-        for (Carrito carrito : carritosListEntregable) {
-            carrito.setEntregado(true);
-            carritoRepository.save(carrito);
-        }
-
-        facturaRepository.save(factura);
-        return factura;
-  
+            factura.setCliente(cliente);
+    
+            List<Carrito> carritosListEntregable = carritoRepository.findCarritosByClienteNoEntregados(cliente);
+            factura.setCarritos(carritosListEntregable);
+    
+            List<Double> totalList = carritoRepository.findTotalByCliente(cliente);
+            factura.setTotal(totalList.stream().reduce(0.0, Double::sum));
+    
+            for (Carrito carrito : carritosListEntregable) {
+                carrito.setEntregado(true);
+                carritoRepository.save(carrito);
+            }
+    
+            facturaRepository.save(factura);
+            return factura;
+      }
+        return null;
     }
 
    @Override
