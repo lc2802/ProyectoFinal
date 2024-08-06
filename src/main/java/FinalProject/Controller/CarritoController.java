@@ -1,6 +1,10 @@
 package FinalProject.Controller;
 
 import FinalProject.Model.Carrito;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,6 +30,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RestController
 @RequestMapping(path="api/v1/carrito")
 
+@ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Respuesta exitosa"),
+        @ApiResponse(responseCode = "404", description = "No se encontró la ruta"),
+        @ApiResponse(responseCode = "500", description = "Error interno")
+})
+
+@Tag(name="Carrito" , description = "Endpoint para generar carritos a partir de un ID de cliente y un arreglo de productos")
+
 public class CarritoController {
 
     @Autowired
@@ -38,6 +50,7 @@ public class CarritoController {
 
    
     @PostMapping("/{idcliente}")
+    @Operation(summary = "Generar carrito", description = "pasar por parametro el id de cliente y en el cuerpo un ARRAY de id de productos, se repetira el producto como se repita en el ARRAY")
     public void addProductosToCarrito(@PathVariable("idcliente") Long idcliente, @RequestBody List<Long> productosID) {
         try {
             Cliente cliente = clienteService.findByID(idcliente);
@@ -54,6 +67,7 @@ public class CarritoController {
     }
 
   @DeleteMapping("/{idcliente}")
+  @Operation(summary = "Eliminar carrito", description = "pasar por parametro el id de cliente y en el cuerpo un ARRAY de id de productos a eliminar, se eliminaran todos los productos que estén en el ARRAY")
 
       public void deleteCarrito(@PathVariable("idcliente") Long idcliente, @RequestBody Long productosID) {
         try {
@@ -71,6 +85,8 @@ public class CarritoController {
     }
 
     @GetMapping("/{idcliente}")
+    @Operation(summary = "Buscar carrito", description = "pasar por parametro el id de cliente")
+
     public List <Carrito> getCarritosByCliente(@PathVariable("idcliente") Long idcliente){
         try {
             Cliente cliente = clienteService.findByID(idcliente);
