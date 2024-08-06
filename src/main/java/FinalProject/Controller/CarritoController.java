@@ -67,7 +67,7 @@ public class CarritoController {
     }
 
   @DeleteMapping("/{idcliente}")
-  @Operation(summary = "Eliminar carrito", description = "pasar por parametro el id de cliente y en el cuerpo un ARRAY de id de productos a eliminar, se eliminaran todos los productos que estén en el ARRAY")
+  @Operation(summary = "Eliminar carrito", description = "pasar por parametro el id de cliente y en el cuerpo el id de producto a eliminar, se eliminará el último registro relacionado a ese producto con ese cliente (Si el ultimo registro agregó dos mismos productos al carrito borrara esos dos productos y dejara el que no fue pasado por parametro)")
 
       public void deleteCarrito(@PathVariable("idcliente") Long idcliente, @RequestBody Long productosID) {
         try {

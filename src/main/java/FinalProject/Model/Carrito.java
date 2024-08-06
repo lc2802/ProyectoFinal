@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -35,7 +36,20 @@ public class Carrito {
     @JoinColumn(name = "factura_id")
     private Factura factura;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonIgnore
+    @Getter
+    @Setter
+    private LocalDateTime dateTime;
+
     @Getter @Setter private Double totalCarrito;
 
     @Getter @Setter private Boolean entregado;
+
+     @PrePersist
+    @PreUpdate
+    protected void onUpdate() {
+        dateTime = LocalDateTime.now();
+    }
+
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import FinalProject.Model.Carrito;
@@ -86,7 +88,8 @@ public class CarritoServiceImpl implements CarritoService{
 
     @Override
     public void deleteCarrito(Producto producto, Cliente cliente) {
-        List<Carrito> carritosToDelete = carritoRepository.findCarritos(producto, cliente);
+        Pageable pageable = PageRequest.of(0, 1);
+        List<Carrito> carritosToDelete = carritoRepository.findCarritos(producto, cliente, pageable);
         carritoRepository.deleteAll(carritosToDelete);
     }
 

@@ -1,4 +1,17 @@
+
+
+## CONFIGURACION ##
+
+Para la primera configuración necesita tener instalado mysql, se puede descargar del siguiente link: https://mvnrepository.com/artifact/com.mysql/mysql-connector-j/8.3.0
+
+Tambien debera tener actualizado a una versión JAVA 17, https://www.oracle.com/ar/java/technologies/downloads/.
+
+Para probar puede utilizar POSTMAN https://www.postman.com/downloads/
+
+Tambien puede probar la versión documentada de SWAGGER en el puerto http://localhost:8080/swagger-ui/index.html#/ una vez haya sido levantado el proyecto desde "MainApplication.java"
+
 ## ESTRUCTURA ##
+
 La estructura de este proyecto es de capas, cada una cuple una funcion. 
 
 Controlador: el controlador se encarga de los ENDPOINTS y de enviar respuestas desde el servidor.
@@ -26,9 +39,9 @@ El modulo producto hay 4 ENDPOINTS, getAllProducto que no necesita parametro, po
 
 ## CARRITO ##
 
-El modulo carrito tiene 2 ENDPOINTS, addProductosToCarrito y deleteCarrito.
-Ambos piden como parametro el ID del cliente en la URL y ademas el primero solicita una lista con los productos a agregar. Dependiendo de cuantas veces se repita el producto, será la cantidad que se agregará de ese producto al carrito.
-deleteCarrito pide el id del producto a eliminar del carrito. (Se eliminaran todos los carritos relacionados entre el ID del cliente y el ID del producto en la BDD)
+El modulo carrito tiene 3 ENDPOINTS, getCarritosByCliente, addProductosToCarrito y deleteCarrito.
+Ambos piden como parametro el ID del cliente en la URL y ademas addProductosToCarrito solicita una lista con los productos a agregar. Dependiendo de cuantas veces se repita el producto, será la cantidad que se agregará de ese producto al carrito.
+deleteCarrito pide el id del producto a eliminar del carrito. (Se eliminara al último registro entre el ID del cliente y el ID del producto en la BDD) 
 
 ## FACTURA ##
 
