@@ -17,8 +17,7 @@ public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter private Long id;
-    @Getter @Setter private Integer cantidad;
-    @Getter @Setter private double precio;
+
 
     @ManyToOne
     @Getter @Setter @JoinColumn(name = "producto_id") private Producto producto;
@@ -27,7 +26,11 @@ public class Carrito {
     @ManyToOne
     @Getter @Setter @JoinColumn(name = "cliente_id") private Cliente cliente;
 
+    @Getter @Setter private Integer cantidad;
+    @Getter @Setter private double precio;
+
     @JsonIgnore
+    @Transient
     @ManyToOne
     @JoinColumn(name = "factura_id")
     private Factura factura;
